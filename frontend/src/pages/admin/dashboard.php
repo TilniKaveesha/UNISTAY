@@ -1,6 +1,6 @@
 <?php
-require_once '../../config/db_connect.php';
-require_once '../../backend/auth.php';
+require_once '../../../../config/db_connect.php';
+require_once '../../../../backend/auth.php';
 require_admin(); 
 
 
@@ -13,7 +13,7 @@ $uniCount = $pdo->query("SELECT COUNT(*) FROM universities")->fetchColumn();
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard - UniStay</title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../styles/style.css">
     <style>
         .admin-layout { display: flex; font-family: sans-serif; }
         .sidebar { width: 250px; background: #333; color: #fff; padding: 20px; min-height: 100vh; }
