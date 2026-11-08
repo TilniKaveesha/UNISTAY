@@ -1,6 +1,6 @@
 <?php
-require_once '../../config/db_connect.php';
-require_once '../../backend/auth.php';
+require_once '../../../../config/db_connect.php';
+require_once '../../../../backend/auth.php';
 require_admin();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
