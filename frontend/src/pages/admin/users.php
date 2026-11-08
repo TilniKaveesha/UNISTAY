@@ -1,6 +1,6 @@
 <?php
-require_once '../../config/db_connect.php';
-require_once '../../backend/auth.php';
+require_once '../../../../config/db_connect.php';
+require_once '../../../../backend/auth.php';
 require_admin();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
@@ -15,7 +15,7 @@ $users = $pdo->query("SELECT user_id, full_name, email, role, status, created_at
 <head>
     <meta charset="UTF-8">
     <title>Manage Users - UniStay Admin</title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../styles/style.css">
 </head>
 <body>
     <div class="admin-layout" style="display: flex; font-family: sans-serif;">
