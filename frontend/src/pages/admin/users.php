@@ -25,7 +25,7 @@ $users = $pdo->query("SELECT user_id, full_name, email, role, status, created_at
             <a href="users.php">Manage Users</a>
             <a href="listings.php">Manage Listings</a>
             <a href="universities.php">Manage Universities</a>
-            <a href="../../backend/logout.php">Logout</a>
+            <a href="../../../backend/logout.php">Logout</a>
         </nav>
         <main class="main-content" style="padding: 20px; flex-grow: 1;">
             <h1>Manage Users</h1>
