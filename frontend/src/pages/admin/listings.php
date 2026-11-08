@@ -25,6 +25,14 @@ $listings = $pdo->query($query)->fetchAll();
 </head>
 <body>
     <div class="admin-layout" style="display: flex; font-family: sans-serif;">
+        <nav class="sidebar">
+            <h2>UniStay Admin</h2>
+            <a href="dashboard.php">Dashboard</a>
+            <a href="users.php">Manage Users</a>
+            <a href="listings.php">Manage Listings</a>
+            <a href="universities.php">Manage Universities</a>
+            <a href="../../../backend/logout.php">Logout</a>
+        </nav>
         <main class="main-content" style="padding: 20px; flex-grow: 1;">
             <h1>Manage Listings</h1>
             <table border="1" cellpadding="10" cellspacing="0" style="width:100%;">
