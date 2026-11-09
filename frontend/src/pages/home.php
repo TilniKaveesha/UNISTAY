@@ -67,8 +67,16 @@ $pageTitle = "UniStay - Find Your Perfect Boarding Place";
                     display:flex;
                     align-items:center;
                     justify-content:center;
+<<<<<<< HEAD
                     background:#eeeeee;
                     color:#777777;
+=======
+                    background-color:#eeeeee;
+                    background-image:linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)), url('<?php echo $baseUrl; ?>../src/assets/images/home-background.jpg');
+                    background-size:cover;
+                    background-position:center;
+                    color:#ffffff;
+>>>>>>> UI/UX
                     text-align:center;
                     padding:20px;
                  ">

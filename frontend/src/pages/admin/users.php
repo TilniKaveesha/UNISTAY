@@ -1,6 +1,11 @@
 <?php
+<<<<<<< HEAD
 require_once '../../../../config/db_connect.php';
 require_once '../../../../backend/auth.php';
+=======
+require_once __DIR__ . '/../../../../config/db_connect.php';
+require_once __DIR__ . '/../../../../backend/auth.php';
+>>>>>>> UI/UX
 require_admin();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {

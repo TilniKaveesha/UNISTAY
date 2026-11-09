@@ -153,7 +153,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <?php endif; ?>
 
 
+<<<<<<< HEAD
             <form action="" method="POST" class="boarding-listing-form">
+=======
+            <form action="" method="POST" enctype="multipart/form-data" class="boarding-listing-form">
+>>>>>>> UI/UX
 
                 <!-- Basic information -->
                 <div class="listing-form-section">
@@ -263,6 +267,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
 
 
+<<<<<<< HEAD
+=======
+                <!-- Boarding photos -->
+                <div class="listing-form-section">
+
+                    <div class="listing-form-section-heading">
+                        <h2>Boarding Photos</h2>
+                        <p>Choose up to 3 photos to preview with this listing.</p>
+                    </div>
+
+                    <div class="photo-upload-panel">
+                        <label for="listingPhotos">Select photos</label>
+                        <input type="file" id="listingPhotos" name="listing_photos[]" accept="image/jpeg,image/png,image/webp" multiple>
+                        <small>JPG, PNG or WebP. Maximum 2 MB per photo. Previews are temporary; photo saving is not connected yet.</small>
+                        <p class="photo-upload-status" id="photoUploadStatus" aria-live="polite">No photos selected.</p>
+                        <div class="photo-preview-grid" id="photoPreviewGrid"></div>
+                    </div>
+                </div>
+>>>>>>> UI/UX
                 <!-- Property details -->
                 <div class="listing-form-section">
 
