@@ -152,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <?php endif; ?>
 
-            <form action="" method="POST" class="boarding-listing-form">
+
             <form action="" method="POST" enctype="multipart/form-data" class="boarding-listing-form">
 
                 <!-- Basic information -->
@@ -279,7 +279,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <div class="photo-preview-grid" id="photoPreviewGrid"></div>
                     </div>
                 </div>
-                
                 <!-- Property details -->
                 <div class="listing-form-section">
 

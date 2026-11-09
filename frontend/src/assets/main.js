@@ -43,8 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-<<<<<<< HEAD
-=======
     // Show temporary previews for selected boarding photos.
     const photoInput = document.getElementById("listingPhotos");
     const photoGrid = document.getElementById("photoPreviewGrid");
@@ -118,5 +116,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
->>>>>>> UI/UX
 });
