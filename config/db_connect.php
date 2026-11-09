@@ -15,8 +15,8 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES   => false,
         // TiDB Cloud walata avashya SSL settings:
-        PDO::MYSQL_ATTR_SSL_CA       => '/etc/ssl/cert.pem', 
-        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
+        pdo\Mysql::MYSQL_ATTR_SSL_CA       => '/etc/ssl/cert.pem', 
+        pdo\Mysql::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
     ];
 
     $pdo = new PDO($dsn, $username, $password, $options);
