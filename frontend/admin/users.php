@@ -4,11 +4,11 @@ require_once '../../backend/auth.php';
 require_admin();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
-    $stmt = $pdo->prepare("UPDATE users SET status = ? WHERE user_id = ?");
+    $stmt = $pdo->prepare("UPDATE User SET status = ? WHERE user_id = ?");
     $stmt->execute([$_POST['status'], $_POST['user_id']]);
 }
 
-$users = $pdo->query("SELECT user_id, full_name, email, role, status, created_at FROM users ORDER BY created_at DESC")->fetchAll();
+$users = $pdo->query("SELECT user_id, full_name, email, role, status, created_at FROM User ORDER BY created_at DESC")->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">

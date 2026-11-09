@@ -4,7 +4,7 @@ require_once '../../backend/auth.php';
 require_admin(); 
 
 
-$userCount = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
+$userCount = $pdo->query("SELECT COUNT(*) FROM User")->fetchColumn();
 $listingCount = $pdo->query("SELECT COUNT(*) FROM boarding_listings")->fetchColumn();
 $uniCount = $pdo->query("SELECT COUNT(*) FROM universities")->fetchColumn();
 ?>

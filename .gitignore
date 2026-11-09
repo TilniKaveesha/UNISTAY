@@ -1,0 +1,4 @@
+/config/database.local.php
+/config/google.local.php
+/vendor/
+/logs/*.log
