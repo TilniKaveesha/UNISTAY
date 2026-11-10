@@ -131,9 +131,8 @@ $googleEnabled = preg_match('/^[A-Za-z0-9._-]+\.apps\.googleusercontent\.com$/',
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= registerEscape($pageTitle) ?></title>
-    <link rel="stylesheet" href="/src/styles/style.css">
-    <link rel="stylesheet" href="/src/styles/unistay-google-login.css">
-    <link rel="stylesheet" href="/src/styles/unistay-register.css">
+    <link rel="stylesheet" href="/UNISTAY_UIUX/frontend/src/styles/style.css">
+    <link rel="stylesheet" href="/UNISTAY_UIUX/frontend/src/styles/unistay-register.css">
     <?php if ($googleEnabled): ?>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <?php endif; ?>

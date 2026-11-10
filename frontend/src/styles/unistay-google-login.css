@@ -1,7 +1,73 @@
-/* Minimal addition to the team's original public login page styles. */
-.unistay-google-area { margin-top: 1.35rem; }
-.unistay-login-divider { display: flex; align-items: center; gap: .8rem; margin: 1.1rem 0; color: #697586; }
-.unistay-login-divider::before, .unistay-login-divider::after { content: ''; flex: 1; border-top: 1px solid #d8dee8; }
-.unistay-google-button { display: flex; justify-content: center; min-height: 44px; }
-.unistay-google-hint { font-size: .82rem; color: #64748b; line-height: 1.5; margin: .4rem 0 .9rem; }
-#google-login-error:not([hidden]) { display: block; margin-bottom: 1rem; }
+
+/* ========================================
+   UNISTAY - GOOGLE LOGIN STYLES
+======================================== */
+
+.unistay-google-area {
+    margin-top: 25px;
+}
+
+/* OR divider */
+.unistay-login-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 22px 0;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.unistay-login-divider::before,
+.unistay-login-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.unistay-login-divider span {
+    padding: 0 5px;
+}
+
+/* Google sign-in button container */
+.unistay-google-button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 42px;
+}
+
+/* Google sign-in information */
+.unistay-google-hint {
+    margin: 10px 0 15px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Role selection */
+.unistay-google-area .form-group {
+    margin-bottom: 18px;
+}
+
+.unistay-google-area .form-control {
+    min-height: 45px;
+}
+
+/* Google login error message */
+#google-login-error,
+#google-register-error {
+    margin-top: 15px;
+}
+
+/* Keep Google button responsive */
+@media (max-width: 600px) {
+    .unistay-google-area {
+        margin-top: 20px;
+    }
+
+    .unistay-google-button {
+        overflow: hidden;
+    }
+}
