@@ -1,0 +1,14 @@
+/* Incremental styles for UniStay monthly rent ledger. */
+.rent-stats { display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:14px;margin:16px 0 22px; }
+.rent-stats>div { background:#fff;border:1px solid #dce5f0;border-radius:12px;padding:18px; }
+.rent-stats span { display:block;color:#64748b;font-size:13px; }
+.rent-stats strong { display:block;font-size:22px;margin-top:7px;color:#183755; }
+.rent-form { display:grid;grid-template-columns:minmax(240px,2fr) repeat(2,minmax(150px,1fr)) auto;gap:12px;align-items:end; }
+.rent-submit {padding-bottom:1px;}
+.rent-heading {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.rent-status {display:inline-block;border-radius:20px;padding:4px 10px;font-size:12px;font-weight:700;white-space:nowrap;}
+.rent-paid {background:#dcfce7;color:#166534;}.rent-pending {background:#fef3c7;color:#92400e;}.rent-overdue {background:#fee2e2;color:#991b1b;}
+.rent-edit {min-width:175px;}.rent-edit summary {cursor:pointer;font-weight:700;color:#155e9f;}
+.rent-update {display:grid;gap:10px;width:210px;margin-top:12px;}
+.rent-update label {font-size:12px;}.rent-update input,.rent-update select {margin-top:6px;}
+@media(max-width:850px){.rent-form{grid-template-columns:repeat(2,minmax(180px,1fr));}}@media(max-width:550px){.rent-form{grid-template-columns:1fr;}}

@@ -1,0 +1,8 @@
+/* Reuse the team's style.css auth classes; only small registration refinements. */
+.auth-section .auth-container { max-width: 520px; }
+.auth-section .form-group select.form-control { width: 100%; min-height: 44px; }
+.unistay-register-hint, .optional-label { color: #64748b; font-size: .875rem; }
+.unistay-register-hint { margin: .25rem 0 1.1rem; line-height: 1.55; }
+.auth-section .auth-footer { text-align: center; }
+.auth-section .auth-footer p { margin: .5rem 0; }
+@media (max-width: 600px) { .auth-section .auth-container { width: 100%; } }

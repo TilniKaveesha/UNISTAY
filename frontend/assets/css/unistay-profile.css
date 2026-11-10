@@ -1,0 +1,22 @@
+/* UniStay profile, optional owner contact sharing, and tenancy history */
+.profile-layout { display:grid; grid-template-columns:minmax(0,2fr) minmax(240px,1fr); align-items:start; gap:16px; }
+.profile-panel,.profile-aside {margin-top:0;}
+.profile-heading {display:flex;align-items:center;gap:15px;margin-bottom:20px;}
+.profile-heading h2 {margin:0 0 3px;}
+.profile-heading p {margin:0;}
+.profile-avatar {display:grid;place-items:center;width:60px;height:60px;border-radius:18px;background:#dfebff;color:#174e91;font-size:27px;font-weight:800;flex-shrink:0;}
+.profile-fields {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+.profile-fields input[readonly] {background:#f5f7fb;color:#64748b;}
+.profile-fields .muted {margin:5px 0 0;}
+.profile-consent {border:1px solid #dbe4ee;background:#f7faff;border-radius:12px;padding:15px;margin:20px 0;}
+.profile-check {display:flex;gap:10px;align-items:flex-start;font-size:14px;cursor:pointer;}
+.profile-check input {width:17px;height:17px;flex:0 0 auto;margin:3px 0 0;}
+.profile-consent p {margin-bottom:0;}
+.tenancy-overview {display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0;}
+.tenancy-overview > div {border:1px solid #dbe4ee;border-radius:12px;padding:16px;background:white;}
+.tenancy-overview strong {display:block;font-size:24px;margin-top:4px;}
+.tenancy-overview span {font-size:13px;color:#64748b;}
+.owner-contact-card {background:#f2f7ff;border:1px solid #c9dff8;border-radius:12px;padding:15px;margin:18px 0;}
+.owner-contact-card h3 {margin:0 0 7px;}
+.owner-contact-card a {font-weight:700;word-break:break-word;}
+@media(max-width:720px){.profile-layout {grid-template-columns:1fr}.profile-fields {grid-template-columns:1fr;}}

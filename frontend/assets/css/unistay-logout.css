@@ -1,0 +1,12 @@
+/* Appended to the existing shared navigation without replacing the team CSS. */
+.topbar nav { align-items: center; }
+.unistay-logout-form { margin: 0; display: inline-flex; align-items: center; }
+.unistay-logout-form .unistay-logout-button {
+  background: #fff4f3; color: #9d2929; border: 1px solid #f3caca;
+  border-radius: 8px; padding: 8px 14px; font-size: 14px;
+  font-weight: 700; cursor: pointer; width: auto;
+}
+.unistay-logout-form .unistay-logout-button:hover,
+.unistay-logout-form .unistay-logout-button:focus-visible {
+  background: #ffe5e1; color: #7d2020;
+}
