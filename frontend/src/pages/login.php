@@ -102,7 +102,6 @@ function loginEscape(string $text): string
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= loginEscape($pageTitle) ?></title>
     <!-- Preserve the original team's public-login visual design. -->
-    <link rel="stylesheet" href="/src/styles/style.css">
     <link rel="stylesheet" href="/src/styles/unistay-google-login.css">
     <?php if ($googleEnabled): ?>
         <script src="https://accounts.google.com/gsi/client" async defer></script>
