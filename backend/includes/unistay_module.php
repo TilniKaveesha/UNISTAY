@@ -75,12 +75,17 @@ function module_header(string $title, string $role): void
     echo '<link rel="stylesheet" href="/assets/css/unistay-modules.css">';
     echo '<link rel="stylesheet" href="/assets/css/unistay-rent.css">';
     echo '<link rel="stylesheet" href="/assets/css/unistay-dashboard.css">';
-    echo '<link rel="stylesheet" href="/assets/css/unistay-profile.css"></head><body>';
+    echo '<link rel="stylesheet" href="/assets/css/unistay-profile.css">';
+    echo '<link rel="stylesheet" href="/assets/css/unistay-logout.css"></head><body>';
     echo '<header class="topbar"><div class="brand">UniStay <span>' . module_escape(ucfirst($role)) . '</span></div><nav>';
     foreach ($nav as $label => $url) {
          $current = (string)($_SERVER['SCRIPT_NAME'] ?? '') === $url;
         echo '<a href="' . module_escape($url) . '"' . ($current ? ' aria-current="page"' : '') . '>' . module_escape($label) . '</a>';
     }
+    // One shared sign-out control for Owner and Student navigation.
+    echo '<form class="unistay-logout-form" action="/logout.php" method="post">';
+    echo '<input type="hidden" name="csrf_token" value="' . module_escape(module_csrf_token()) . '">';
+    echo '<button type="submit" class="unistay-logout-button">Log out</button></form>';
     echo '</nav></header><main class="container"><h1>' . module_escape($title) . '</h1>';
     module_show_flash();
 }
@@ -88,6 +93,17 @@ function module_header(string $title, string $role): void
 function module_footer(): void
 {
     echo '</main><footer class="footer">UniStay · Shared TiDB development database</footer></body></html>';
+}
+
+/** Use the application's local calendar for rent and tenancy dates, regardless of server timezone. */
+function module_today(): string
+{
+    return (new DateTimeImmutable('now', new DateTimeZone('Asia/Colombo')))->format('Y-m-d');
+}
+
+function module_current_month(): string
+{
+    return (new DateTimeImmutable('now', new DateTimeZone('Asia/Colombo')))->format('Y-m');
 }
 
 function module_positive_int(mixed $value, string $name): int

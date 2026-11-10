@@ -9,7 +9,7 @@ function profile_role_and_id(): array
     if (!in_array($role, ['student', 'owner'], true)) {
         require_once __DIR__ . '/auth.php';
         if (empty($_SESSION['user_id'])) {
-            header('Location: /login.php', true, 303);
+            header('Location: /public/login.php', true, 303);
             exit;
         }
         http_response_code(403);
