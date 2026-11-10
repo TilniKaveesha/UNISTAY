@@ -36,3 +36,71 @@ th { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacin
 .card strong { display:block; font-size:20px; margin:5px 0; }
 .footer { padding:20px; text-align:center; color:var(--muted); border-top:1px solid var(--line); }
 @media(max-width:640px) { h1 {font-size:24px;} .panel {padding:16px;} th,td {padding:9px 7px;} }
+
+/* UniStay boarding listings upgrade */
+.full-width { grid-column: 1 / -1; }
+.listing-cards { grid-template-columns: repeat(auto-fit, minmax(285px, 1fr)); }
+.listing-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.listing-cover { width: 100%; height: 190px; object-fit: cover; display: block; background: #eaf1f8; }
+.listing-placeholder { display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; letter-spacing: -.7px; color: #6383a8; background: linear-gradient(120deg,#dce9f5,#f0f5fb); }
+.listing-card-content { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.listing-card h3 { font-size: 20px; margin: 10px 0 7px; line-height: 1.3; }
+.listing-card-content .actions { margin-top: auto; padding-top: 8px; }
+.listing-filter { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 14px; align-items: end; }
+.filter-actions { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+.listing-details { padding: 0; overflow: hidden; }
+.listing-hero { width: 100%; height: clamp(200px,35vw,360px); object-fit: cover; display: flex; }
+.listing-details-content { padding: 25px; }
+.listing-details-content h2 { font-size: 26px; margin-top: 12px; }
+.listing-details-content h3 { font-size: 18px; margin: 20px 0 8px; }
+.listing-facts { display: grid; grid-template-columns: repeat(auto-fit,minmax(145px,1fr)); gap: 12px; margin: 22px 0; }
+.listing-facts > div { background: #f4f8fb; border-radius: 8px; padding: 12px; }
+.listing-facts small { display: block; }
+.listing-facts strong { display: block; font-size: 18px; margin-top: 5px; }
+.facility-list { display: flex; gap: 8px; flex-wrap: wrap; }
+.facility-chip { font-size: 13px; font-weight: 600; background: #ecf3fc; color: #164a84; padding: 6px 11px; border-radius: 24px; }
+.back-link { display: inline-block; margin-bottom: 16px; color: #1765c1; font-weight: 700; text-decoration: none; }
+
+/* UniStay inquiry experience + listing galleries */
+.photo-manager-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(215px,1fr)); gap: 16px; }
+.photo-manager-card { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.photo-manager-card > img { width: 100%; height: 175px; object-fit: cover; display: block; background: #e8eef6; }
+.photo-manager-actions { padding: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.photo-manager-actions button { font-size: 12px; padding: 8px 10px; }
+.listing-thumbnails { display: flex; flex-wrap: wrap; gap: 10px; padding: 12px 18px; background: #f8fafc; border-bottom: 1px solid var(--line); }
+.listing-thumbnail { width: 82px; height: 64px; background: #fff; padding: 2px; border: 2px solid transparent; border-radius: 9px; }
+.listing-thumbnail.selected, .listing-thumbnail:focus-visible { border-color: var(--accent); outline: 2px solid rgba(23,101,193,.12); }
+.listing-thumbnail:hover { background: #e3eefb; }
+.listing-thumbnail > img { width: 100%; height: 100%; object-fit: cover; border-radius: 5px; }
+.inquiry-stats { display: grid; grid-template-columns: repeat(auto-fit,minmax(155px,1fr)); gap: 12px; margin: 16px 0 20px; }
+.inquiry-stats > div { background: #fff; border: 1px solid var(--line); border-radius: 11px; padding: 15px; }
+.inquiry-stats span { display: block; font-size: 13px; }
+.inquiry-stats strong { display: block; font-size: 28px; line-height: 1.1; margin-top: 6px; }
+.status-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.status-pill { display: inline-flex; gap: 8px; align-items: center; border: 1px solid var(--line); border-radius: 25px; text-decoration: none; color: #355477; background: #fff; padding: 7px 12px; font-size: 13px; font-weight: 700; }
+.status-pill span { background: #ebf2f9; color: #365878; padding: 1px 7px; border-radius: 14px; }
+.status-pill.active { background: #e9f2ff; border-color: #98bfe9; color: #155399; }
+.inquiry-card-list { display: grid; gap: 12px; }
+.inquiry-card { margin: 0; }
+.inquiry-card-top, .inquiry-card-bottom { display: flex; gap: 14px; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; }
+.inquiry-card-top h2 { margin: 5px 0 2px; }
+.inquiry-card-top p { margin: 2px 0; }
+.inquiry-card-bottom { align-items: center; border-top: 1px solid var(--line); padding-top: 15px; }
+.inquiry-message { margin: 18px 0; background: #f7f9fc; border: 1px solid #e3eaf3; border-radius: 10px; padding: 14px 16px; white-space: normal; overflow-wrap: anywhere; }
+.status-tag { border-radius: 18px; padding: 4px 10px; font-weight: 700; font-size: 12px; white-space: nowrap; background: #eaf0f8; color: #3d5674; }
+.status-pending { background: #fff3d9; color: #84590c; }
+.status-approved { background: #e8f3ff; color: #145e9b; }
+.status-confirmed { background: #e3f8eb; color: #166437; }
+.status-rejected, .status-withdrawn { background: #f6e9e9; color: #934044; }
+.inquiry-property-preview { display: flex; gap: 18px; align-items: center; border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin-bottom: 20px; }
+.inquiry-property-preview > img { width: 120px; height: 90px; flex-shrink: 0; border-radius: 7px; object-fit: cover; }
+.inquiry-property-preview strong { font-size: 18px; }
+.inquiry-property-preview p { margin: 3px 0; }
+.plain-link { color: inherit; text-decoration: none; }
+.plain-link:hover { color: var(--accent); text-decoration: underline; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+@media(max-width:640px) {
+  .inquiry-property-preview { align-items: flex-start; }
+  .inquiry-property-preview > img { width: 80px; height: 70px; }
+  .photo-manager-grid { grid-template-columns: repeat(auto-fill, minmax(155px,1fr)); }
+}

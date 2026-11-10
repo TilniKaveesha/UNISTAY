@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-
+// Shared helpers for Tasks 3 and 4. Uses the existing UniStay auth.php and db() function.
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/database.php';
 
@@ -15,7 +15,7 @@ function module_require(string $role): int
     }
     return (int)$id;
 }
-//
+
 function module_escape(?string $value): string
 {
     return htmlspecialchars($value ?? '', ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
@@ -67,15 +67,19 @@ function module_fail(Throwable $e, string $redirectTo): never
 function module_header(string $title, string $role): void
 {
     $nav = $role === 'owner'
-        ? ['Dashboard' => '/owner/dashboard.php', 'My Listings' => '/owner/listings.php', 'Inquiries' => '/owner/inquiries.php', 'Tenants' => '/owner/tenants.php']
-        : ['Dashboard' => '/student/dashboard.php', 'Browse' => '/student/listings.php', 'My Inquiries' => '/student/inquiries.php', 'My Tenancy' => '/student/tenancy.php'];
+        ? ['Dashboard' => '/owner/dashboard.php', 'My Listings' => '/owner/listings.php', 'Inquiries' => '/owner/inquiries.php', 'Tenants' => '/owner/tenants.php', 'Rent Ledger' => '/owner/rent.php', 'My Profile' => '/profile.php']
+        : ['Dashboard' => '/student/dashboard.php', 'Browse' => '/student/listings.php', 'My Inquiries' => '/student/inquiries.php', 'My Tenancy' => '/student/tenancy.php', 'Payments' => '/student/payments.php', 'My Profile' => '/profile.php'];
     echo '<!doctype html><html lang="en"><head><meta charset="utf-8">';
     echo '<meta name="viewport" content="width=device-width,initial-scale=1">';
     echo '<title>' . module_escape($title) . ' | UniStay</title>';
-    echo '<link rel="stylesheet" href="/assets/css/unistay-modules.css"></head><body>';
+    echo '<link rel="stylesheet" href="/assets/css/unistay-modules.css">';
+    echo '<link rel="stylesheet" href="/assets/css/unistay-rent.css">';
+    echo '<link rel="stylesheet" href="/assets/css/unistay-dashboard.css">';
+    echo '<link rel="stylesheet" href="/assets/css/unistay-profile.css"></head><body>';
     echo '<header class="topbar"><div class="brand">UniStay <span>' . module_escape(ucfirst($role)) . '</span></div><nav>';
     foreach ($nav as $label => $url) {
-        echo '<a href="' . module_escape($url) . '">' . module_escape($label) . '</a>';
+         $current = (string)($_SERVER['SCRIPT_NAME'] ?? '') === $url;
+        echo '<a href="' . module_escape($url) . '"' . ($current ? ' aria-current="page"' : '') . '>' . module_escape($label) . '</a>';
     }
     echo '</nav></header><main class="container"><h1>' . module_escape($title) . '</h1>';
     module_show_flash();
