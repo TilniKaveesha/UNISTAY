@@ -2,9 +2,9 @@
 require_once '../../config/db_connect.php';
 require_once '../../backend/auth.php';
 require_admin(); 
+$pdo = db();
 
-
-$userCount = $pdo->query("SELECT COUNT(*) FROM User")->fetchColumn();
+$userCount = $pdo->query("SELECT COUNT(*) FROM `User`")->fetchColumn();
 $listingCount = $pdo->query("SELECT COUNT(*) FROM boarding_listings")->fetchColumn();
 $uniCount = $pdo->query("SELECT COUNT(*) FROM universities")->fetchColumn();
 ?>
@@ -32,7 +32,7 @@ $uniCount = $pdo->query("SELECT COUNT(*) FROM universities")->fetchColumn();
             <a href="users.php">Manage Users</a>
             <a href="listings.php">Manage Listings</a>
             <a href="universities.php">Manage Universities</a>
-            <a href="../../backend/logout.php">Logout</a>
+            <a href="/logout.php">Logout</a>
         </nav>
         <main class="main-content">
             <h1>Admin Dashboard</h1>

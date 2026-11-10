@@ -2,6 +2,7 @@
 require_once '../../config/db_connect.php';
 require_once '../../backend/auth.php';
 require_admin();
+$pdo = db();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     if ($_POST['action'] === 'deactivate') {
@@ -13,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
 $query = "SELECT l.listing_id, l.title, l.rent_amount, l.availability_status, u.full_name as owner_name 
           FROM boarding_listings l 
-          JOIN users u ON l.owner_id = u.user_id 
+          JOIN `User` u ON l.owner_id = u.user_id
           ORDER BY l.created_at DESC";
 $listings = $pdo->query($query)->fetchAll();
 ?>

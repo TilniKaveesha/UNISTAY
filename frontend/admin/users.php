@@ -2,13 +2,14 @@
 require_once '../../config/db_connect.php';
 require_once '../../backend/auth.php';
 require_admin();
+$pdo = db();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
-    $stmt = $pdo->prepare("UPDATE User SET status = ? WHERE user_id = ?");
+    $stmt = $pdo->prepare("UPDATE `User` SET status = ? WHERE user_id = ?");
     $stmt->execute([$_POST['status'], $_POST['user_id']]);
 }
 
-$users = $pdo->query("SELECT user_id, full_name, email, role, status, created_at FROM User ORDER BY created_at DESC")->fetchAll();
+$users = $pdo->query("SELECT user_id, full_name, email, role, status, created_at FROM `User` ORDER BY created_at DESC")->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +26,7 @@ $users = $pdo->query("SELECT user_id, full_name, email, role, status, created_at
             <a href="users.php">Manage Users</a>
             <a href="listings.php">Manage Listings</a>
             <a href="universities.php">Manage Universities</a>
-            <a href="../../backend/logout.php">Logout</a>
+            <a href="/logout.php">Logout</a>
         </nav>
         <main class="main-content" style="padding: 20px; flex-grow: 1;">
             <h1>Manage Users</h1>

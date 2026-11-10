@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             require_once __DIR__ . '/../config/db_connect.php';
             $stmt = $pdo->prepare(
-                'SELECT user_id, full_name, password_hash, role, status FROM users WHERE email = ? LIMIT 1'
+                'SELECT user_id, full_name, password_hash, role, status FROM `User` WHERE email = ? LIMIT 1'
             );
             $stmt->execute([$email]);
             $user = $stmt->fetch();
