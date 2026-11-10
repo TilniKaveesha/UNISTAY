@@ -8,7 +8,6 @@ if (session_status()!== PHP_SESSION_ACTIVE){
 }
 // Check if the user is logged in
 function requireRole(string $requiredRole): void {
-    
     if (!isset($_SESSION['user_id'])){// User is not logged in
         header('Location: /login.php');
         exit;// Redirect to login page
