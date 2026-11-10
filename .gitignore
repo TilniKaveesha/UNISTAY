@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-/backend/app/config/database.local.php
-=======
 /config/database.local.php
+/config/cloudinary.local.php
 /config/google.local.php
 /vendor/
-/logs/*.log
-/config/cloudinary.local.php
->>>>>>> feature/owner-student-modules
