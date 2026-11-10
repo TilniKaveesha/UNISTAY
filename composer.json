@@ -1,0 +1,9 @@
+{
+    "name": "baby-sharks1/unistay",
+    "description": "UniStay PHP web application",
+    "type": "project",
+    "require": {
+        "php": "^8.4",
+        "google/apiclient": "^2.0"
+    }
+}
