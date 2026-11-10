@@ -2,3 +2,4 @@
 /config/google.local.php
 /vendor/
 /logs/*.log
+/config/cloudinary.local.php
