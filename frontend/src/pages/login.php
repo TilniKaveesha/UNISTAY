@@ -10,6 +10,27 @@ if (!defined('UNISTAY_LOGIN_ENTRY')) {
 require_once __DIR__ . '/../../../backend/includes/guest_only.php';
 unistayRequireGuest();
 
+/** Restrict admin password login to the single provisioned TiDB account. */
+function unistayAdminLoginAllowed(PDO $pdo, string $email): bool
+{
+    $configPath = __DIR__ . '/../../../config/admin.local.php';
+    if (!is_file($configPath)) {
+        return false;
+    }
+    $config = require $configPath;
+    if (!is_array($config) || !is_string($config['email'] ?? null)) {
+        return false;
+    }
+    $allowedEmail = strtolower(trim($config['email']));
+    if ($allowedEmail === '' || !hash_equals($allowedEmail, strtolower(trim($email)))) {
+        return false;
+    }
+    // Fail closed if the database contains multiple enabled admin accounts.
+    $count = (int) $pdo->query("SELECT COUNT(*) FROM `User` WHERE role = 'admin' AND status = 'active'")
+        ->fetchColumn();
+    return $count === 1;
+}
+
 $pageTitle = 'Login | UniStay';
 $errorMessage = '';
 $emailValue = '';
@@ -37,11 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errorMessage = 'Please enter a valid email and password.';
     } else {
         try {
-            // The team's database connector must expose PDO as $pdo.
-            require_once __DIR__ . '/../../../config/db_connect.php';
-            if (!isset($pdo) || !($pdo instanceof PDO)) {
-                throw new RuntimeException('Database connection is unavailable.');
-            }
+            // Use the same TiDB connection as the owner/student backend.
+            require_once __DIR__ . '/../../../backend/includes/database.php';
+            $pdo = db();
 
             // Match the real TiDB table name: `User` (not `users`).
             $stmt = $pdo->prepare(
@@ -58,6 +77,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $errorMessage = 'Your account is unavailable. Please contact support.';
             } elseif (!array_key_exists((string) ($user['role'] ?? ''), $dashboardRoutes)) {
                 $errorMessage = 'Your account role is unsupported.';
+            } elseif ($user['role'] === 'admin' && !unistayAdminLoginAllowed($pdo, $emailValue)) {
+                // Only the one administrator provisioned for this installation can use admin login.
+                $errorMessage = 'This admin account is not authorized.';
             } else {
                 session_regenerate_id(true);
                 $_SESSION['user_id'] = (int) $user['user_id'];
@@ -65,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['full_name'] = (string) ($user['full_name'] ?? '');
                 unset($_SESSION['unistay_login_csrf']);
 
-                header('Location: ' . $dashboardRoutes[$_SESSION['role']], true, 303);
+                header('Location: ' . unistayPostLoginDestination($_SESSION['role']), true, 303);
                 exit;
             }
         } catch (Throwable $e) {
@@ -102,8 +124,8 @@ function loginEscape(string $text): string
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= loginEscape($pageTitle) ?></title>
     <!-- Preserve the original team's public-login visual design. -->
-    <link rel="stylesheet" href="/UNISTAY_UIUX/frontend/src/styles/style.css">
-    <link rel="stylesheet" href="/UNISTAY_UIUX/frontend/src/styles/unistay-google-login.css">
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <link rel="stylesheet" href="/src/styles/unistay-google-login.css">
     <?php if ($googleEnabled): ?>
         <script src="https://accounts.google.com/gsi/client" async defer></script>
     <?php endif; ?>
