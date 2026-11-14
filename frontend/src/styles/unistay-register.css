@@ -1,0 +1,79 @@
+
+/* ========================================
+   UNISTAY - REGISTRATION PAGE STYLES
+======================================== */
+
+/* Registration form layout */
+#register-form {
+    gap: 18px;
+}
+
+/* Registration input fields */
+#register-form .form-group {
+    width: 100%;
+}
+
+/* Optional field label */
+.optional-label {
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* Password input and visibility button */
+#register-form .password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+#register-form .password-wrapper .form-control {
+    padding-right: 65px;
+}
+
+#register-form .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    padding: 5px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#register-form .password-toggle:hover {
+    color: var(--primary);
+}
+
+/* Registration information */
+.unistay-register-hint {
+    margin-top: -5px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Role selection */
+#register-form select.form-control {
+    cursor: pointer;
+}
+
+/* Registration submit button */
+#register-form .auth-submit {
+    width: 100%;
+    min-height: 48px;
+}
+
+/* Responsive registration layout */
+@media (max-width: 600px) {
+    #register-form {
+        gap: 16px;
+    }
+
+    .unistay-register-hint {
+        font-size: 11px;
+    }
+}
