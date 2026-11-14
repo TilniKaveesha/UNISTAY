@@ -14,7 +14,7 @@ $pageTitle = "UniStay - Find Your Perfect Boarding Place";
 
     <title><?php echo htmlspecialchars($pageTitle); ?></title>
 
-    <link rel="stylesheet" href="/UNISTAY/frontend/src/styles/style.css">
+    <link rel="stylesheet" href="/src/styles/style.css">
 </head>
 
 <body>
@@ -68,7 +68,7 @@ $pageTitle = "UniStay - Find Your Perfect Boarding Place";
                     align-items:center;
                     justify-content:center;
                     background-color:#eeeeee;
-                    background-image:linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)), url('<?php echo $baseUrl; ?>../src/assets/images/home-background.jpg');
+                    background-image:linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)), url('/src/assets/images/home-background.jpg');
                     background-size:cover;
                     background-position:center;
                     color:#ffffff;
@@ -289,6 +289,6 @@ $pageTitle = "UniStay - Find Your Perfect Boarding Place";
 </section>
 
 
-<?php include __DIR__ . '/../components/header.php'; ?>
+<?php include __DIR__ . '/../components/footer.php'; ?>
     </body>
 </html>
