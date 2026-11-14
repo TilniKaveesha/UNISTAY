@@ -6,6 +6,7 @@ require_once __DIR__ . '/../../../../config/db_connect.php';
 require_once __DIR__ . '/../../../../backend/auth.php';
 
 require_admin();
+$pdo = db();
 
 $pdo = db();
 

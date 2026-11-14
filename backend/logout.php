@@ -14,6 +14,6 @@ if (ini_get("session.use_cookies")) {
 
 session_destroy();
 
-header("Location: ../frontend/login.php");
+header("Location: ../frontend/public/login.php");
 exit();
 ?>
