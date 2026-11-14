@@ -1,0 +1,5 @@
+/config/database.local.php
+/config/cloudinary.local.php
+/config/google.local.php
+/vendor/
+/config/admin.local.php
